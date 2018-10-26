@@ -53,7 +53,6 @@ export const getSlices = function(values:RefinerValue[], numSlices:number) : Ran
             targetSlice.count = targetSlice.count + refinerValue.count;
         }
     })
-
     return slices;
 }
 
@@ -63,7 +62,7 @@ export const setSliceHeights = function(slices:RangeSlice[], maxHeight = 50, min
     if (maxCount < 10) maxCount = 10;
     slices.forEach(slice => {
         slice.height = maxHeight * slice.count / maxCount
-        if (slice.height < minHeight) slice.height = minHeight
+        if (slice.count && slice.height < minHeight) slice.height = minHeight
     })
     return slices;
 }

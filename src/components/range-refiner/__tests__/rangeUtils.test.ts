@@ -199,7 +199,7 @@ describe("rangeUtils.getSlices()", () => {
     test("Should at least have minHeight if there is a count", () => {
         let values = [ 
             { value: 1, count: 50 },
-            { value: 5, count: 100 }, 
+            { value: 5, count: 100 },
             { value: 10, count: 1 }, 
         ];
         let slices = getSlices(values, 3);
@@ -207,5 +207,15 @@ describe("rangeUtils.getSlices()", () => {
         expect(slices[0].height).toBe(20);
         expect(slices[1].height).toBe(40);
         expect(slices[2].height).toBe(5);
+    })
+    test("Should have a height of 0 if no count", () => {
+        let values = [ 
+            { value: 1, count: 0 },
+            { value: 5, count: 0 },
+            { value: 10, count: 10 }, 
+        ];
+        let slices = getSlices(values, 3);
+        setSliceHeights(slices, 40, 5);
+        expect(slices[0].height).toBe(0);
     })
 })

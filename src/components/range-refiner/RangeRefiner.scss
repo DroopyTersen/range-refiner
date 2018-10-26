@@ -1,0 +1,16 @@
+.rangeRefiner {
+    width: 300px;
+    .inputs {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+
+        input {
+            padding: 2px;
+            border: 1px solid #d8d8d8;
+            width: 70px;
+            text-align: right;
+            margin-top: 5px;
+        }
+    }
+}
